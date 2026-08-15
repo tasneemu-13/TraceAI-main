@@ -1,0 +1,185 @@
+/* TraceAI Dark Premium Theme Design System */
+
+:root {
+    --bg-primary: #0a0e1a;
+    --bg-secondary: #121829;
+    --accent-blue: #2563eb;
+    --accent-purple: #8b5cf6;
+    --accent-teal: #14b8a6;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --bg-glass: rgba(15, 23, 42, 0.65);
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Mesh Gradient Backdrop */
+.mesh-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
+    background-color: var(--bg-primary);
+    background-image: 
+        radial-gradient(at 10% 20%, rgba(37, 99, 235, 0.15) 0px, transparent 50%),
+        radial-gradient(at 90% 10%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 80%, rgba(20, 184, 166, 0.1) 0px, transparent 50%);
+    background-size: 200% 200%;
+    animation: meshLoop 20s ease-infinite alternate;
+}
+
+@keyframes meshLoop {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(16px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(120%) !important;
+    border: 1px solid var(--border-glass) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.glass-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(37, 99, 235, 0.3) !important;
+    box-shadow: 0 12px 40px 0 rgba(37, 99, 235, 0.15) !important;
+}
+
+/* Glass Interactive Buttons */
+.glass-btn {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--border-glass) !important;
+    color: var(--text-primary) !important;
+    border-radius: 8px !important;
+    transition: all 0.25s ease !important;
+}
+
+.glass-btn:hover {
+    background: rgba(37, 99, 235, 0.2) !important;
+    border-color: var(--accent-blue) !important;
+    transform: scale(1.02);
+}
+
+/* Gradients */
+.text-gradient-blue-purple {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.text-gradient-purple-teal {
+    background: linear-gradient(135deg, #a855f7 0%, #14b8a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* Skeleton Loading */
+.skeleton {
+    background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+    background-size: 200% 100%;
+    animation: loadingSkeleton 1.5s infinite;
+    border-radius: 8px;
+}
+
+@keyframes loadingSkeleton {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Sticky Glass Navbar */
+.glass-nav {
+    background: rgba(10, 14, 26, 0.75) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid var(--border-glass) !important;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Typing logo effect */
+.typing-title {
+    border-right: 2px solid var(--accent-blue);
+    white-space: nowrap;
+    animation: blinkCursor 0.75s step-end infinite;
+}
+
+@keyframes blinkCursor {
+    from, to { border-color: transparent }
+    50% { border-color: var(--accent-blue); }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+}
+
+/* Quasar Inputs and Selects styling override */
+.q-field__native, .q-field__input, .q-field__label {
+    color: var(--text-primary) !important;
+}
+
+.q-field__control {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid var(--border-glass) !important;
+    border-radius: 8px !important;
+}
+
+.q-field__control:before, .q-field__control:after {
+    display: none !important;
+}
+
+/* Force page wrapper padding to 0 to enable edge-to-edge headers and footers */
+.q-page {
+    padding: 0 !important;
+}
+
+/* Glass footer that breaks parent containment to stretch edge-to-edge and matches glass-nav */
+.glass-footer {
+    background: rgba(10, 14, 26, 0.75) !important;
+    backdrop-filter: blur(12px) !important;
+    border-top: 1px solid var(--border-glass) !important;
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    position: relative !important;
+}
