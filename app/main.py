@@ -128,7 +128,7 @@ def helpdesk_page():
 def forums_page():
     forums.content()
 
-# Initialize NiceGUI with FastAPI mounting (binding to reload and specific secret for users)
+# Initialize NiceGUI with FastAPI mounting
 ui.run_with(
     fastapi_app,
     storage_secret="traceai_super_secret_session_key_12389127391823"
@@ -138,11 +138,13 @@ if __name__ == "__main__":
     import uvicorn
     import os
     
-    # This tells the cloud (Railway) to use its assigned port, or defaults to 8080 locally
+    # Dynamically grab Render's PORT (defaults to 8080 locally)
     port = int(os.environ.get("PORT", 8080))
     
-    # Startup uvicorn server. host="0.0.0.0" allows external internet traffic!
-    uvicorn.run("app.main:fastapi_app", host="0.0.0.0", port=port)
+    # Run uvicorn directly on the app instance instead of string reloading
+    uvicorn.run(fastapi_app, host="0.0.0.0", port=port)
+
+
 '''if __name__ == "__main__":
     import uvicorn
     # Startup uvicorn server serving the FastAPI + NiceGUI application
