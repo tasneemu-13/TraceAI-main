@@ -13,7 +13,7 @@ TraceAI is a comprehensive, Python-based case management and facial recognition 
 * **Frontend/Backend:** Python, NiceGUI, FastAPI
 * **Database:** MySQL, SQLAlchemy (ORM)
 * **AI/ML:** Ollama (LLaMA 3), MediaPipe, Sentence-Transformers
-* **Deployment:** Railway, GitHub
+* **Deployment:** Render, GitHub
 
 ## 🛠️ How to Run Locally
 
