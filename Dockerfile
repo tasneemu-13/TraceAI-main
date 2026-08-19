@@ -20,8 +20,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code
 COPY . .
 
-# Expose the application port
-EXPOSE 8080
+# Render web service port
+EXPOSE 10000
 
 # Run the application
 CMD ["python", "-m", "app.main"]
